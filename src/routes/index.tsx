@@ -12,7 +12,7 @@ function Home() {
       <main>
         <section className="mx-auto grid max-w-6xl items-end gap-12 px-5 py-14 md:grid-cols-2 md:py-24">
           <div>
-            <LogoMark className="size-14" />
+            <LogoMark className="h-20" />
             <p className="kicker mt-5">Scripture study</p>
             <h1 className="display-title mt-4 text-ink">Knowing Faith</h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
