@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { LogoMark } from "@/components/logo";
@@ -59,6 +60,17 @@ function Home() {
                 <p className="mt-3 text-sm leading-relaxed text-muted">{copy}</p>
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="border-t border-line bg-ink text-paper">
+          <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
+            <p className="kicker text-brass">Study</p>
+            <h2 className="mt-3 max-w-xl font-serif text-4xl">Stay with the words.</h2>
+            <p className="mt-4 max-w-xl leading-relaxed text-paper/80">
+              Open the page. Let one line sit next to another. The reading room is for staying, not skimming.
+            </p>
+            <StudyFilm />
           </div>
         </section>
 
@@ -164,5 +176,34 @@ function Home() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function StudyFilm() {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      video.pause();
+      return;
+    }
+    void video.play().catch(() => undefined);
+  }, []);
+
+  return (
+    <video
+      ref={ref}
+      className="mt-8 aspect-video w-full bg-ink object-cover"
+      muted
+      loop
+      playsInline
+      autoPlay
+      poster="/study-poster.jpg"
+      aria-label="An open Bible on a desk. A brass cross stands where the pages part, and a hand turns the page."
+    >
+      <source src="/study.mp4" type="video/mp4" />
+    </video>
   );
 }
