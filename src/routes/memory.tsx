@@ -33,7 +33,7 @@ function MemoryPage() {
   async function addStarters() {
     if (!connected) {
       setAdding(false);
-      setStatus(translation === "CSB" ? "Save an API.Bible key first." : "Save an ESV token first.");
+      setStatus("Save an ESV token first.");
       return;
     }
     setAdding(true);

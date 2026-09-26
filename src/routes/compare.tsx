@@ -149,7 +149,7 @@ function ComparePage() {
         Read them together. Then ask for questions that stay inside the words on the page.
       </p>
 
-      <div className="mt-6 flex gap-2 overflow-x-auto pb-2">
+      <div className="mt-6 flex flex-wrap gap-2">
         {COMPARE_PRESETS.map((preset) => (
           <button
             key={preset.title}
@@ -193,8 +193,8 @@ function ComparePage() {
 
       {!connected && ready ? (
         <div className="mt-8 border border-line bg-paper p-6">
-          <h2 className="font-serif text-3xl">Connect ESV or CSB</h2>
-          <p className="mt-3 text-sm text-muted">Passages stay closed until a licensed text is connected.</p>
+          <h2 className="font-serif text-3xl">Connect the ESV</h2>
+          <p className="mt-3 text-sm text-muted">Passages stay closed until the ESV token is saved.</p>
           <div className="mt-5">
             <TranslationFields />
           </div>

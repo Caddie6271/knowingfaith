@@ -65,7 +65,7 @@ function LexiconPage() {
             ))}
           </div>
           <p className="mt-3 text-xs text-muted">{results.length} words</p>
-          <ul className="mt-2 max-h-80 overflow-y-auto border-t border-line">
+          <ul className="mt-2 border-t border-line">
             {results.map((item) => (
               <li key={item.id}>
                 <button

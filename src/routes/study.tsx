@@ -210,9 +210,9 @@ function StudyPage() {
         <div>
           {ready && !connected ? (
             <div className="border border-line bg-paper p-6">
-              <h2 className="font-serif text-3xl text-ink">Connect ESV or CSB</h2>
+              <h2 className="font-serif text-3xl text-ink">Connect the ESV</h2>
               <p className="mt-3 text-sm leading-relaxed text-muted">
-                The reading room will not open another translation. Choose one and save its key.
+                The reading room will not open another translation. Save a Crossway token.
               </p>
               <div className="mt-5">
                 <TranslationFields />

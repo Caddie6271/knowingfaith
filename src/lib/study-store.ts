@@ -60,13 +60,9 @@ export const useStudy = create<StudyState>()(
       setEsvToken: (esvToken) =>
         set({
           esvToken,
-          translation: esvToken.trim() ? "ESV" : get().csbKey.trim() ? "CSB" : "ESV",
+          translation: "ESV",
         }),
-      setCsbKey: (csbKey) =>
-        set({
-          csbKey,
-          translation: csbKey.trim() ? "CSB" : get().esvToken.trim() ? "ESV" : get().translation,
-        }),
+      setCsbKey: (csbKey) => set({ csbKey, translation: "ESV" }),
       setNote: (note) => set({ note }),
       addCard: (card) => {
         const exists = get().cards.some(
@@ -120,9 +116,7 @@ export const useStudy = create<StudyState>()(
           state.esvToken = state.token;
         }
         delete state.token;
-        if (state.translation !== "ESV" && state.translation !== "CSB") {
-          state.translation = state.csbKey && !state.esvToken ? "CSB" : "ESV";
-        }
+        if (state.translation !== "ESV") state.translation = "ESV";
         return state as {
           translation: TranslationId;
           esvToken: string;

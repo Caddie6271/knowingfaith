@@ -28,7 +28,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Link to="/" className="shrink-0 font-serif text-xl text-ink">
             Knowing Faith
           </Link>
-          <nav className="ml-auto flex min-w-0 items-center gap-1 overflow-x-auto text-sm">
+          <nav className="ml-auto flex min-w-0 flex-wrap items-center justify-end gap-1 text-sm">
             {links.map((link) => {
               const active = pathname === link.to;
               return (
@@ -51,7 +51,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       <div className="mx-auto max-w-6xl px-4 py-6 md:py-10">{children}</div>
       <footer className="mx-auto max-w-6xl px-4 pb-12 text-xs leading-relaxed text-muted">
-        ESV® text is fetched live from Crossway. CSB® text is fetched live from API.Bible. Neither text is stored in Knowing Faith.
+        ESV® text is fetched live from Crossway. It is not stored in Knowing Faith.
       </footer>
     </div>
   );

@@ -37,7 +37,7 @@ function Home() {
             <p className="kicker">John 1</p>
             <h2 className="mt-2 font-serif text-3xl text-ink">The Word</h2>
             <p className="mt-6 font-serif text-2xl leading-relaxed text-ink">
-              The passage opens in the ESV or the CSB once that license is connected. Knowing Faith does not substitute another Bible.
+              The passage opens in the ESV once that license is connected. Knowing Faith does not substitute another Bible.
             </p>
             <p className="mt-6 text-sm text-muted">Genesis 1:1–5 beside John 1:1–5 is the first comparison.</p>
           </article>
@@ -129,39 +129,28 @@ function Home() {
         <section className="border-t border-line bg-paper">
           <div className="mx-auto max-w-6xl px-5 py-16">
             <p className="kicker">The text</p>
-            <h2 className="mt-3 max-w-2xl font-serif text-4xl text-ink">ESV or CSB. Nothing else.</h2>
-            <div className="mt-6 grid max-w-3xl gap-6 text-ink-soft md:grid-cols-2">
-              <div>
-                <p className="font-medium text-ink">English Standard Version</p>
-                <p className="mt-2 text-sm leading-relaxed">
-                  Free for non-commercial use from Crossway at api.esv.org. Create an application and paste the token. A paid product needs a license, and Crossway licenses organizations, not solo developers.
-                </p>
-              </div>
-              <div>
-                <p className="font-medium text-ink">Christian Standard Bible</p>
-                <p className="mt-2 text-sm leading-relaxed">
-                  Holman does not provide a CSB file. Sign up at scripture.api.bible, add the CSB on the free non-commercial Starter plan, and paste the API key. Charging for the service means their paid plan.
-                </p>
-              </div>
-            </div>
+            <h2 className="mt-3 max-w-2xl font-serif text-4xl text-ink">The English Standard Version.</h2>
+            <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft">
+              Free for non-commercial use from Crossway at api.esv.org. Create an application and paste the token. A paid product needs a license, and Crossway licenses organizations, not solo developers.
+            </p>
           </div>
         </section>
 
         <section className="border-t border-line">
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-16 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl">
-              <p className="kicker">Membership</p>
+              <p className="kicker">Register</p>
               <h2 className="mt-3 font-serif text-4xl text-ink">Sign-in and payment wait until this is tested.</h2>
               <p className="mt-4 leading-relaxed text-ink-soft">
                 Google and Microsoft login, and checkout, are not turned on. The reading room is. Use it. When
-                accounts open, membership will be the door.
+                accounts open, Register is the door.
               </p>
             </div>
             <Link
               to="/join"
               className="inline-flex min-h-11 items-center rounded-md bg-brass-deep px-4 text-sm font-medium text-paper hover:bg-brass"
             >
-              See what’s coming
+              Register
             </Link>
           </div>
         </section>
@@ -169,7 +158,7 @@ function Home() {
       <footer className="border-t border-line">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 text-xs leading-relaxed text-muted md:flex-row md:justify-between">
           <p>Knowing Faith · knowing.faith</p>
-          <p>ESV® from Crossway. CSB® from Holman through API.Bible. Text is fetched when you ask for a passage.</p>
+          <p>ESV® from Crossway. Text is fetched when you ask for a passage.</p>
         </div>
       </footer>
     </div>

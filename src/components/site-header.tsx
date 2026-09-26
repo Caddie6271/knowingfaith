@@ -14,7 +14,7 @@ export function SiteHeader() {
         <Link to="/" className="shrink-0 font-serif text-xl text-ink">
           Knowing Faith
         </Link>
-        <nav className="ml-auto flex min-w-0 items-center gap-1 overflow-x-auto text-sm text-ink-soft">
+        <nav className="ml-auto flex min-w-0 flex-wrap items-center justify-end gap-1 text-sm text-ink-soft">
           {links.map((link) =>
             "search" in link ? (
               <Link
@@ -39,7 +39,7 @@ export function SiteHeader() {
             to="/join"
             className="ml-1 inline-flex min-h-11 shrink-0 items-center rounded-md bg-brass-deep px-3 text-paper hover:bg-brass"
           >
-            Membership
+            Register
           </Link>
         </nav>
       </div>

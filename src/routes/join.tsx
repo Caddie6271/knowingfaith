@@ -18,7 +18,7 @@ function JoinPage() {
     <div>
       <SiteHeader />
       <main className="mx-auto max-w-3xl px-5 py-14">
-        <p className="kicker">Membership</p>
+        <p className="kicker">Register</p>
         <h1 className="display-title mt-4 text-4xl text-ink">Not open yet.</h1>
         <p className="mt-6 text-lg leading-relaxed text-ink-soft">
           Knowing Faith will take a sign-in with Google or Microsoft, and then payment, when the reading room
@@ -36,7 +36,7 @@ function JoinPage() {
           </article>
           <article className="border border-line bg-parchment p-5">
             <p className="kicker">Later</p>
-            <h2 className="mt-2 font-serif text-3xl">Membership</h2>
+            <h2 className="mt-2 font-serif text-3xl">Register</h2>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               Sign in, then pay. The price will be set when checkout opens. Accounts are how a set of verses
               will be able to follow you off this device.

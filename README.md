@@ -5,7 +5,6 @@ A reading room for Scripture. Compare passages, look up Greek and Hebrew words, 
 The English text is not in this repository. Connect your own key in the reading room:
 
 - **ESV** — free non-commercial token from [api.esv.org](https://api.esv.org/)
-- **CSB** — API key from [scripture.api.bible](https://scripture.api.bible/) with the Christian Standard Bible enabled
 
 Sign-in and payment are not turned on yet.
 
@@ -26,5 +25,5 @@ Production for knowing.faith is a Cloudflare Worker. From this folder, after `np
 npm run deploy:cloudflare
 ```
 
-In the Cloudflare dashboard, open the `knowing-faith` worker and add the custom domain `knowing.faith`. For the study questions, set the secret `XAI_API_KEY` (`npx wrangler secret put XAI_API_KEY`). ESV and CSB keys stay in the browser.
+In the Cloudflare dashboard, open the `knowing-faith` worker and add the custom domain `knowing.faith`. For the study questions, set the secret `XAI_API_KEY` (`npx wrangler secret put XAI_API_KEY`). The ESV token stays in the browser.
 

@@ -5,9 +5,6 @@ import { verseKey } from "@/lib/scripture";
 const ESV_SHORT =
   "Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), © 2001 by Crossway, a publishing ministry of Good News Publishers. Used by permission. All rights reserved.";
 
-const CSB_SHORT =
-  "Scripture quotations marked CSB have been taken from the Christian Standard Bible®, Copyright © 2017 by Holman Bible Publishers. Used by permission. Christian Standard Bible® and CSB® are federally registered trademarks of Holman Bible Publishers.";
-
 export function PassageView({
   passage,
   selected,
@@ -24,9 +21,7 @@ export function PassageView({
       <header className="mb-5 flex flex-wrap items-end justify-between gap-3">
         <div>
           <h2 className="font-serif text-4xl text-ink">{passage.reference}</h2>
-          <p className="kicker mt-2">
-            {passage.translation === "ESV" ? "English Standard Version" : "Christian Standard Bible"}
-          </p>
+          <p className="kicker mt-2">English Standard Version</p>
         </div>
       </header>
       {passage.warning ? (
@@ -74,7 +69,7 @@ export function PassageView({
         })}
       </ol>
       <p className="mt-6 text-xs leading-relaxed text-muted">
-        {passage.notice || (passage.translation === "ESV" ? ESV_SHORT : CSB_SHORT)}
+        {passage.notice || ESV_SHORT}
       </p>
     </article>
   );
