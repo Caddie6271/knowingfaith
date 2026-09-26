@@ -1,6 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { SettingsDialog } from "@/components/settings-dialog";
+import { Logo } from "@/components/logo";
 import { useStudy } from "@/lib/study-store";
 
 const links = [
@@ -25,8 +26,8 @@ export function AppShell({ children }: { children: ReactNode }) {
     <div className="min-h-screen">
       <header className="sticky top-0 z-30 border-b border-line bg-parchment">
         <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2">
-          <Link to="/" className="shrink-0 font-serif text-xl text-ink">
-            Knowing Faith
+          <Link to="/" className="shrink-0" aria-label="Knowing Faith, home">
+            <Logo />
           </Link>
           <nav className="ml-auto flex min-w-0 flex-wrap items-center justify-end gap-1 text-sm">
             {links.map((link) => {

@@ -1,4 +1,5 @@
 import { Link } from "@tanstack/react-router";
+import { Logo } from "@/components/logo";
 
 const links = [
   { to: "/study", label: "Read", search: { ref: "John 1" } },
@@ -11,8 +12,8 @@ export function SiteHeader() {
   return (
     <header className="border-b border-line bg-parchment">
       <div className="mx-auto flex max-w-6xl items-center gap-3 px-4 py-2">
-        <Link to="/" className="shrink-0 font-serif text-xl text-ink">
-          Knowing Faith
+        <Link to="/" className="shrink-0" aria-label="Knowing Faith, home">
+          <Logo />
         </Link>
         <nav className="ml-auto flex min-w-0 flex-wrap items-center justify-end gap-1 text-sm text-ink-soft">
           {links.map((link) =>

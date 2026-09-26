@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
+import { LogoMark } from "@/components/logo";
 
 export const Route = createFileRoute("/")({ component: Home });
 
@@ -10,7 +11,8 @@ function Home() {
       <main>
         <section className="mx-auto grid max-w-6xl items-end gap-12 px-5 py-14 md:grid-cols-2 md:py-24">
           <div>
-            <p className="kicker">Scripture study</p>
+            <LogoMark className="size-14" />
+            <p className="kicker mt-5">Scripture study</p>
             <h1 className="display-title mt-4 text-ink">Knowing Faith</h1>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-ink-soft">
               A reading room for setting passages beside each other, learning the words underneath them, and
