@@ -9,6 +9,7 @@ const links = [
   { to: "/compare", label: "Compare" },
   { to: "/lexicon", label: "Lexicon" },
   { to: "/memory", label: "Memory" },
+  { to: "/journal", label: "Journal" },
 ] as const;
 
 export function AppShell({ children }: { children: ReactNode }) {

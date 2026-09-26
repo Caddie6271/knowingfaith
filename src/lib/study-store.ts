@@ -10,6 +10,15 @@ export type ReadingCreds = {
   csbKey: string;
 };
 
+export type JournalEntry = {
+  id: string;
+  title: string;
+  body: string;
+  createdAt: number;
+  updatedAt: number;
+  source: "note" | "sermon";
+};
+
 export type MemoryCard = {
   id: string;
   ref: string;
@@ -29,12 +38,16 @@ type StudyState = {
   csbKey: string;
   cards: MemoryCard[];
   note: string;
+  entries: JournalEntry[];
   answers: Record<string, StudyResult>;
   setReady: () => void;
   setTranslation: (translation: TranslationId) => void;
   setEsvToken: (token: string) => void;
   setCsbKey: (key: string) => void;
   setNote: (note: string) => void;
+  addEntry: (entry: { title: string; body: string; source: JournalEntry["source"] }) => string;
+  updateEntry: (id: string, patch: { title?: string; body?: string }) => void;
+  removeEntry: (id: string) => void;
   addCard: (card: Omit<MemoryCard, "id" | "addedAt" | "dueAt" | "intervalDays" | "reps" | "lapses">) => boolean;
   removeCard: (id: string) => void;
   gradeCard: (id: string, remembered: boolean) => void;
@@ -54,6 +67,7 @@ export const useStudy = create<StudyState>()(
       csbKey: "",
       cards: [],
       note: "",
+      entries: [],
       answers: {},
       setReady: () => set({ ready: true }),
       setTranslation: (translation) => set({ translation }),
@@ -64,6 +78,34 @@ export const useStudy = create<StudyState>()(
         }),
       setCsbKey: (csbKey) => set({ csbKey, translation: "ESV" }),
       setNote: (note) => set({ note }),
+      addEntry: (entry) => {
+        const id = crypto.randomUUID();
+        const now = Date.now();
+        const next: JournalEntry = {
+          id,
+          title: entry.title.trim().slice(0, 120) || "Untitled",
+          body: entry.body.slice(0, 80_000),
+          createdAt: now,
+          updatedAt: now,
+          source: entry.source,
+        };
+        set({ entries: [next, ...get().entries].slice(0, 40) });
+        return id;
+      },
+      updateEntry: (id, patch) =>
+        set({
+          entries: get().entries.map((entry) =>
+            entry.id === id
+              ? {
+                  ...entry,
+                  title: patch.title != null ? patch.title.slice(0, 120) : entry.title,
+                  body: patch.body != null ? patch.body.slice(0, 80_000) : entry.body,
+                  updatedAt: Date.now(),
+                }
+              : entry,
+          ),
+        }),
+      removeEntry: (id) => set({ entries: get().entries.filter((entry) => entry.id !== id) }),
       addCard: (card) => {
         const exists = get().cards.some(
           (item) => item.ref === card.ref && item.translation === card.translation,
@@ -123,6 +165,7 @@ export const useStudy = create<StudyState>()(
           csbKey: string;
           cards: MemoryCard[];
           note: string;
+          entries: JournalEntry[];
           answers: Record<string, StudyResult>;
         };
       },
@@ -132,6 +175,7 @@ export const useStudy = create<StudyState>()(
         csbKey: state.csbKey,
         cards: state.cards,
         note: state.note,
+        entries: state.entries,
         answers: state.answers,
       }),
       onRehydrateStorage: () => (state) => {

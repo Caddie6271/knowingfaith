@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CompareRouteImport } from './routes/compare'
 import { Route as JoinRouteImport } from './routes/join'
+import { Route as JournalRouteImport } from './routes/journal'
 import { Route as LexiconRouteImport } from './routes/lexicon'
 import { Route as MemoryRouteImport } from './routes/memory'
 import { Route as StudyRouteImport } from './routes/study'
@@ -29,6 +30,11 @@ const CompareRoute = CompareRouteImport.update({
 const JoinRoute = JoinRouteImport.update({
   id: '/join',
   path: '/join',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JournalRoute = JournalRouteImport.update({
+  id: '/journal',
+  path: '/journal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LexiconRoute = LexiconRouteImport.update({
@@ -51,6 +57,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/compare': typeof CompareRoute
   '/join': typeof JoinRoute
+  '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/compare': typeof CompareRoute
   '/join': typeof JoinRoute
+  '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
@@ -68,23 +76,34 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/compare': typeof CompareRoute
   '/join': typeof JoinRoute
+  '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/compare' | '/join' | '/lexicon' | '/memory' | '/study'
+  fullPaths:
+    '/' | '/compare' | '/join' | '/journal' | '/lexicon' | '/memory' | '/study'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/compare' | '/join' | '/lexicon' | '/memory' | '/study'
+  to:
+    '/' | '/compare' | '/join' | '/journal' | '/lexicon' | '/memory' | '/study'
   id:
-    '__root__' | '/' | '/compare' | '/join' | '/lexicon' | '/memory' | '/study'
+    | '__root__'
+    | '/'
+    | '/compare'
+    | '/join'
+    | '/journal'
+    | '/lexicon'
+    | '/memory'
+    | '/study'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CompareRoute: typeof CompareRoute
   JoinRoute: typeof JoinRoute
+  JournalRoute: typeof JournalRoute
   LexiconRoute: typeof LexiconRoute
   MemoryRoute: typeof MemoryRoute
   StudyRoute: typeof StudyRoute
@@ -111,6 +130,13 @@ declare module '@tanstack/react-router' {
       path: '/join'
       fullPath: '/join'
       preLoaderRoute: typeof JoinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/journal': {
+      id: '/journal'
+      path: '/journal'
+      fullPath: '/journal'
+      preLoaderRoute: typeof JournalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/lexicon': {
@@ -141,6 +167,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CompareRoute: CompareRoute,
   JoinRoute: JoinRoute,
+  JournalRoute: JournalRoute,
   LexiconRoute: LexiconRoute,
   MemoryRoute: MemoryRoute,
   StudyRoute: StudyRoute,

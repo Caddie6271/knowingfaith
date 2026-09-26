@@ -6,6 +6,7 @@ const links = [
   { to: "/compare", label: "Compare", search: { a: "", b: "" } },
   { to: "/lexicon", label: "Lexicon", search: { q: "" } },
   { to: "/memory", label: "Memory" },
+  { to: "/journal", label: "Journal" },
 ] as const;
 
 export function SiteHeader() {
