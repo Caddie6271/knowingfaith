@@ -11,8 +11,18 @@ export function LogoMark({ className }: { className?: string }) {
       <rect x="1.25" y="1.25" width="29.5" height="29.5" rx="6" fill="none" stroke="#8d6840" strokeWidth="1.5" />
       <path fill="#1a1714" d="M6.8 9.4c2.8-.8 5.4-.3 7.2.9v13.2c-1.9-1.1-4.5-1.5-7.2-.7V9.4z" />
       <path fill="#1a1714" d="M25.2 9.4c-2.8-.8-5.4-.3-7.2.9v13.2c1.9-1.1 4.5-1.5 7.2-.7V9.4z" />
-      <path fill="#f3eee6" d="M15.2 10.6h1.6v12.2h-1.6z" />
-      <path stroke="#8d6840" strokeWidth="1.7" strokeLinecap="round" d="M19.1 15.1h4.3M19.1 18.3h3.1" />
+      <path
+        stroke="#f3eee6"
+        strokeWidth="4.4"
+        strokeLinecap="square"
+        d="M16 9.2v14.2M11.2 15.4h9.6"
+      />
+      <path
+        stroke="#4a3218"
+        strokeWidth="2.1"
+        strokeLinecap="square"
+        d="M16 10.2v12.2M12.2 15.4h7.6"
+      />
     </svg>
   );
 }
