@@ -37,7 +37,7 @@ const items = [
   },
   {
     q: "Do I need an account?",
-    a: "Not yet. Sign-in and payment are waiting until the reading room is tested. Register is where that door will be.",
+    a: "No. The reading room works without one. Register signs you in with Google if you want an account. There is no charge.",
   },
 ] as const;
 

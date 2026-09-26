@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/logo";
+import { SignedIn, SignedOut, UserButton } from "@/lib/auth/gates";
 
 const links = [
   { to: "/study", label: "Read", search: { ref: "John 1" } },
@@ -40,12 +41,17 @@ export function SiteHeader() {
               </Link>
             ),
           )}
-          <Link
-            to="/join"
-            className="ml-1 inline-flex min-h-11 shrink-0 items-center rounded-md bg-brass-deep px-3 text-paper hover:bg-brass"
-          >
-            Register
-          </Link>
+          <SignedOut>
+            <Link
+              to="/login"
+              className="ml-1 inline-flex min-h-11 shrink-0 items-center rounded-md bg-brass-deep px-3 text-paper hover:bg-brass"
+            >
+              Register
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
         </nav>
       </div>
     </header>

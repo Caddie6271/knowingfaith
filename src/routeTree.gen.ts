@@ -17,8 +17,10 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as JoinRouteImport } from './routes/join'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as LexiconRouteImport } from './routes/lexicon'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as MemoryRouteImport } from './routes/memory'
 import { Route as StudyRouteImport } from './routes/study'
+import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -60,6 +62,11 @@ const LexiconRoute = LexiconRouteImport.update({
   path: '/lexicon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MemoryRoute = MemoryRouteImport.update({
   id: '/memory',
   path: '/memory',
@@ -68,6 +75,11 @@ const MemoryRoute = MemoryRouteImport.update({
 const StudyRoute = StudyRouteImport.update({
   id: '/study',
   path: '/study',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
+  id: '/api/auth/$',
+  path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -80,8 +92,10 @@ export interface FileRoutesByFullPath {
   '/join': typeof JoinRoute
   '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
+  '/login': typeof LoginRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -92,8 +106,10 @@ export interface FileRoutesByTo {
   '/join': typeof JoinRoute
   '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
+  '/login': typeof LoginRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -105,8 +121,10 @@ export interface FileRoutesById {
   '/join': typeof JoinRoute
   '/journal': typeof JournalRoute
   '/lexicon': typeof LexiconRoute
+  '/login': typeof LoginRoute
   '/memory': typeof MemoryRoute
   '/study': typeof StudyRoute
+  '/api/auth/$': typeof ApiAuthSplatRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -119,8 +137,10 @@ export interface FileRouteTypes {
     | '/join'
     | '/journal'
     | '/lexicon'
+    | '/login'
     | '/memory'
     | '/study'
+    | '/api/auth/$'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -131,8 +151,10 @@ export interface FileRouteTypes {
     | '/join'
     | '/journal'
     | '/lexicon'
+    | '/login'
     | '/memory'
     | '/study'
+    | '/api/auth/$'
   id:
     | '__root__'
     | '/'
@@ -143,8 +165,10 @@ export interface FileRouteTypes {
     | '/join'
     | '/journal'
     | '/lexicon'
+    | '/login'
     | '/memory'
     | '/study'
+    | '/api/auth/$'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -156,8 +180,10 @@ export interface RootRouteChildren {
   JoinRoute: typeof JoinRoute
   JournalRoute: typeof JournalRoute
   LexiconRoute: typeof LexiconRoute
+  LoginRoute: typeof LoginRoute
   MemoryRoute: typeof MemoryRoute
   StudyRoute: typeof StudyRoute
+  ApiAuthSplatRoute: typeof ApiAuthSplatRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -218,6 +244,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LexiconRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/memory': {
       id: '/memory'
       path: '/memory'
@@ -232,6 +265,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/auth/$': {
+      id: '/api/auth/$'
+      path: '/api/auth/$'
+      fullPath: '/api/auth/$'
+      preLoaderRoute: typeof ApiAuthSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -244,8 +284,10 @@ const rootRouteChildren: RootRouteChildren = {
   JoinRoute: JoinRoute,
   JournalRoute: JournalRoute,
   LexiconRoute: LexiconRoute,
+  LoginRoute: LoginRoute,
   MemoryRoute: MemoryRoute,
   StudyRoute: StudyRoute,
+  ApiAuthSplatRoute: ApiAuthSplatRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

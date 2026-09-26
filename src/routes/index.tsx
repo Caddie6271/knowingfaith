@@ -145,7 +145,7 @@ function Home() {
             <p className="kicker">The text</p>
             <h2 className="mt-3 max-w-2xl font-serif text-4xl text-ink">The English Standard Version.</h2>
             <p className="mt-6 max-w-2xl text-sm leading-relaxed text-ink-soft">
-              Free for non-commercial use from Crossway at api.esv.org. Create an application and paste the token. A paid product needs a license, and Crossway licenses organizations, not solo developers.
+              Free for non-commercial use from Crossway at api.esv.org. Create an application and paste the token. Knowing Faith does not charge, and it does not keep the text.
             </p>
           </div>
         </section>
@@ -154,14 +154,13 @@ function Home() {
           <div className="mx-auto flex max-w-6xl flex-col gap-6 px-5 py-16 md:flex-row md:items-end md:justify-between">
             <div className="max-w-xl">
               <p className="kicker">Register</p>
-              <h2 className="mt-3 font-serif text-4xl text-ink">Sign-in and payment wait until this is tested.</h2>
+              <h2 className="mt-3 font-serif text-4xl text-ink">Sign in if you want an account.</h2>
               <p className="mt-4 leading-relaxed text-ink-soft">
-                Google and Microsoft login, and checkout, are not turned on. The reading room is. Use it. When
-                accounts open, Register is the door.
+                Google is open. The reading room does not require it, and there is no charge.
               </p>
             </div>
             <Link
-              to="/join"
+              to="/login"
               className="inline-flex min-h-11 items-center rounded-md bg-brass-deep px-4 text-sm font-medium text-paper hover:bg-brass"
             >
               Register

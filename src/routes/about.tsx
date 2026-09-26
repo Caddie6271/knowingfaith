@@ -21,8 +21,8 @@ function AboutPage() {
             you connect yourself. It is not stored here, and another translation is not put in its place.
           </p>
           <p>
-            Notes, memory cards, and sermon transcripts stay in this browser. Sign-in and payment are not
-            turned on yet. When they are, Register is the door.
+            Notes and memory cards stay in this browser until you sign in. Google sign-in is open. There is
+            no charge.
           </p>
           <p>The site is knowing.faith.</p>
         </div>

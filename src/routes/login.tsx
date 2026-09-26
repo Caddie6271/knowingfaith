@@ -3,9 +3,9 @@ import { SignInPanel } from "@/components/sign-in-panel";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const Route = createFileRoute("/join")({ component: JoinPage });
+export const Route = createFileRoute("/login")({ component: LoginPage });
 
-function JoinPage() {
+function LoginPage() {
   return (
     <div>
       <SiteHeader />
