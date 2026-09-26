@@ -11,3 +11,5 @@ AGENTS.project.md
 .env
 .env.*
 dist
+.wrangler
+worker-configuration.d.ts

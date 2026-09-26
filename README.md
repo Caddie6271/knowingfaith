@@ -17,3 +17,14 @@ npm run dev
 ```
 
 The app listens on port 8080.
+
+## Cloudflare
+
+Production for knowing.faith is a Cloudflare Worker. From this folder, after `npx wrangler login`:
+
+```bash
+npm run deploy:cloudflare
+```
+
+In the Cloudflare dashboard, open the `knowing-faith` worker and add the custom domain `knowing.faith`. For the study questions, set the secret `XAI_API_KEY` (`npx wrangler secret put XAI_API_KEY`). ESV and CSB keys stay in the browser.
+
