@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/site-header";
 import { LogoMark } from "@/components/logo";
@@ -63,14 +62,14 @@ function Home() {
           </div>
         </section>
 
-        <section className="border-t border-line bg-ink text-paper">
+        <section className="border-t border-line">
           <div className="mx-auto max-w-6xl px-5 py-16 md:py-20">
-            <p className="kicker text-brass">Study</p>
-            <h2 className="mt-3 max-w-xl font-serif text-4xl">Stay with the words.</h2>
-            <p className="mt-4 max-w-xl leading-relaxed text-paper/80">
+            <p className="kicker">Study</p>
+            <h2 className="mt-3 max-w-xl font-serif text-4xl text-ink">Stay with the words.</h2>
+            <p className="mt-4 max-w-xl leading-relaxed text-ink-soft">
               Open the page. Let one line sit next to another. The reading room is for staying, not skimming.
             </p>
-            <StudyFilm />
+            <StudySpread />
           </div>
         </section>
 
@@ -179,31 +178,30 @@ function Home() {
   );
 }
 
-function StudyFilm() {
-  const ref = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const video = ref.current;
-    if (!video) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      video.pause();
-      return;
-    }
-    void video.play().catch(() => undefined);
-  }, []);
-
+function StudySpread() {
+  const left = ["92%", "74%", "88%", "61%", "80%"];
+  const right = ["86%", "70%", "93%", "58%", "77%"];
   return (
-    <video
-      ref={ref}
-      className="mt-8 aspect-video w-full bg-ink object-cover"
-      muted
-      loop
-      playsInline
-      autoPlay
-      poster="/study-poster.jpg"
-      aria-label="An open Bible on a desk. A brass cross stands where the pages part, and a hand turns the page."
-    >
-      <source src="/study.mp4" type="video/mp4" />
-    </video>
+    <div className="mt-10 grid gap-4 md:grid-cols-2" aria-hidden="true">
+      {[
+        ["Genesis 1", left, 0],
+        ["John 1", right, 3.4],
+      ].map(([label, widths, start]) => (
+        <article
+          key={label as string}
+          className={start ? "study-page study-page-late border border-line bg-paper px-6 py-7" : "study-page border border-line bg-paper px-6 py-7"}
+        >
+          <p className="kicker">{label as string}</p>
+          <div className="study-lines mt-6">
+            {(widths as string[]).map((width, index) => (
+              <span
+                key={width}
+                style={{ width, animationDelay: `${(start as number) + index * 0.55}s` }}
+              />
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
   );
 }
