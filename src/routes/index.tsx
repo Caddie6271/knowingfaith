@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { LogoMark } from "@/components/logo";
 
@@ -168,12 +169,7 @@ function Home() {
           </div>
         </section>
       </main>
-      <footer className="border-t border-line">
-        <div className="mx-auto flex max-w-6xl flex-col gap-2 px-5 py-8 text-xs leading-relaxed text-muted md:flex-row md:justify-between">
-          <p>Knowing Faith · knowing.faith</p>
-          <p>ESV® from Crossway. Text is fetched when you ask for a passage.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

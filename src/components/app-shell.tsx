@@ -53,7 +53,18 @@ export function AppShell({ children }: { children: ReactNode }) {
       </header>
       <div className="mx-auto max-w-6xl px-4 py-6 md:py-10">{children}</div>
       <footer className="mx-auto max-w-6xl px-4 pb-12 text-xs leading-relaxed text-muted">
-        ESV® text is fetched live from Crossway. It is not stored in Knowing Faith.
+        <p>ESV® text is fetched live from Crossway. It is not stored in Knowing Faith.</p>
+        <nav className="mt-2 flex flex-wrap gap-x-4">
+          <Link to="/about" className="inline-flex min-h-11 items-center hover:text-ink">
+            About
+          </Link>
+          <Link to="/faq" className="inline-flex min-h-11 items-center hover:text-ink">
+            How to use
+          </Link>
+          <Link to="/contact" className="inline-flex min-h-11 items-center hover:text-ink">
+            Contact
+          </Link>
+        </nav>
       </footer>
     </div>
   );
